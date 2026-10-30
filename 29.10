@@ -1,0 +1,28 @@
+// Практика 3. Каталог товаров
+
+const goods = [
+  { name: "Ноутбук", price: 75000, category: "Техника" },
+  { name: "Мышь", price: 1500, category: "Аксессуары" },
+  { name: "Клавиатура", price: 3500, category: "Аксессуары" },
+  { name: "Монитор", price: 22000, category: "Техника" },
+  { name: "Наушники", price: 5000, category: "Аксессуары" }
+];
+
+goods.forEach(item => console.log(`${item.name}: ${item.price} рублей`));
+
+const budgetItems = goods.filter(item => item.price < 5000);
+console.log(budgetItems);
+
+const titles = goods.map(item => item.name);
+console.log(titles);
+
+const techItem = goods.find(item => item.category === "Техника");
+console.log(techItem);
+
+const discountPrices = goods.map(item => item.price * 0.9);
+console.log(discountPrices);
+
+const accessoriesList = goods
+  .filter(item => item.category === "Аксессуары" && item.price <= 4000)
+  .map(item => item.name);
+console.log(accessoriesList);
