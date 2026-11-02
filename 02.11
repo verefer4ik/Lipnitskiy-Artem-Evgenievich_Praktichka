@@ -1,0 +1,237 @@
+задание 1 первой пары
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Практическая работа</title>
+</head>
+<body>
+    <h1 id="main-title">Моя учебная страница</h1>
+
+    <p class="description">Первый абзац</p>
+    <p class="description">Второй абзац</p>
+    <p class="description">Третий абзац</p>
+
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <div id="container">
+        <h2>Дополнительная информация</h2>
+    </div>
+
+    <script src="script.js">
+        
+const mainTitle = document.getElementById('main-title');
+console.log("1. Поиск по ID (main-title):", mainTitle);
+
+const descriptions = document.getElementsByClassName('description');
+console.log("2. Поиск по классу (description):", descriptions);
+
+const listItems = document.getElementsByTagName('li');
+console.log("3. Поиск по тегу (li):", listItems);
+
+const subTitle = document.querySelector('#container h2');
+console.log("4. Поиск по селектору (querySelector h2):", subTitle);
+                                                                                                      
+const allParagraphs = document.querySelectorAll('p');
+console.log("5. Поиск всех по селектору (querySelectorAll p):", allParagraphs);
+        
+    </script>
+</body>
+</html>
+
+задание 2,3 первой пары
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2,3</title>
+</head>
+<body>
+    <h1 id="main-title">Моя учебная страница</h1>
+
+    <p class="description">Первый абзац</p>
+    <p class="description">Второй абзац</p>
+    <p class="description">Третий абзац</p>
+
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <div id="container">
+        <h2>Дополнительная информация</h2>
+    </div>
+
+    <script>
+        const mainTitle = document.getElementById('main-title');
+        console.log("1. Поиск по ID:", mainTitle);
+
+        // 2. Поиск по классу
+        const descriptions = document.getElementsByClassName('description');
+        console.log("2. Поиск по классу:", descriptions);
+
+        // 3. Поиск по тегу
+        const listItems = document.getElementsByTagName('li');
+        console.log("3. Поиск по тегу:", listItems);
+
+        // 4. Поиск по CSS-селектору
+        const subTitle = document.querySelector('#container h2');
+        console.log("4. Поиск по селектору:", subTitle);
+
+        // 5. Поиск всех элементов по CSS-селекторучячяхъхъхъхъхъъъъхъхъххъхъ
+        const allParagraphs = document.querySelectorAll('p');
+        console.log("5. Поиск всех p:", allParagraphs);
+    </script>
+</body>
+</html>
+
+пара 2 задание 1
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1</title>
+</head>
+<body>
+    <h1 id="main-title">Моя учебная страница</h1>
+
+    <p class="description">Первый абзац</p>
+    <p class="description">Второй абзац</p>
+    <p class="description">Третий абзац</p>
+
+    <ul>
+        <li id="first">HTML</li>
+        <li id="second">CSS</li>
+        <li id="third">JavaScript</li>
+    </ul>
+
+    <div>
+        <h2>Дополнительная информация</h2>
+    </div>
+
+    <script>
+let first = document.querySelector("#first");
+
+let parent = first.parentElement;
+
+console.log(parent);
+console.log(parent.children);
+console.log(parent.firstElementChild); 
+console.log(parent.lastElementChild);  
+console.log(first.nextElementSibling);  
+
+let third = document.querySelector("#third");
+
+console.log(third.previousElementSibling);
+
+    </script>
+</body>
+</html>
+
+пара 2 задание 2
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+</head>
+<body>
+
+    <a id="link" href="https://google.com">Перейти</a>
+
+    <script>
+const link = document.querySelector('#link');
+const currentHref = link.getAttribute('href');
+
+console.log('1. Текущий адрес ссылки:', currentHref);
+
+link.setAttribute('href', 'https://yandex.ru');
+link.setAttribute('target', '_blank');
+
+console.log('2. Атрибуты изменены. Новый href:', link.getAttribute('href'));
+
+const hasTarget = link.hasAttribute('target');
+const hasClass = link.hasAttribute('class');
+
+console.log('3. Есть ли атрибут target?:', hasTarget);
+console.log('3. Есть ли атрибут class?:', hasClass);
+
+link.removeAttribute('target');
+console.log('4. Атрибут target удален. Проверка:', link.hasAttribute('target'));
+    </script>
+</body>
+</html>
+
+задание 3 пара 2
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3</title>
+</head>
+<body>
+
+    <input id="username" type="text" value="Студент">
+    <p id="result">Здесь появится результат</p>
+
+    <script>
+const inputField = document.querySelector('#username');
+const resultParagraph = document.querySelector('#result');
+
+inputField.value = 'Новое значение Студента';
+resultParagraph.textContent = inputField.value;
+
+console.log('Значение перенесено в абзац:', resultParagraph.textContent);
+
+    </script>
+</body>
+</html>
+
+пара 2 задание 4
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 4</title>
+    <style>
+        .text { color: black; }
+        .active { color: green; font-weight: bold; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <p id="message" class="text">Текст. Просто текст</p>
+
+    <p>Тест текста 123123 "Привет Мир!"</p>
+    <p class="active">Интересный факт: Скоро выйдет Немецкий и Норвежский Leopard 2a8, ит немецкий будет хуже по нововедениям((( </p>
+
+    <script>
+const message = document.querySelector('#message');
+
+message.classList.add('active');
+console.log('Добавлен класс active. Список классов:', message.className);
+
+const hasActive = message.classList.contains('active');
+console.log('Содержит ли элемент класс active?:', hasActive);
+
+message.classList.remove('text');
+console.log('Удален класс text. Список классов:', message.className);
+
+message.classList.toggle('hidden');
+console.log('Переключен класс hidden. Список классов:', message.className);
+
+    </script>
+</body>
+</html>
