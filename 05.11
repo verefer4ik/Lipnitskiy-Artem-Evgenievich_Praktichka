@@ -1,0 +1,360 @@
+задание 1
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Практика №3</title>
+</head>
+<body>
+
+    <h1 id="title">Старый заголовок</h1>
+    <p id="description">Старое описание</p>
+    <button id="change">Изменить текст</button>
+
+    <script>
+      const titleElement = document.getElementById('title');
+const descriptionElement = document.getElementById('description');
+const buttonElement = document.getElementById('change');
+
+buttonElement.addEventListener('click', () => {
+    titleElement.textContent = 'Добро пожаловать!';
+    
+    descriptionElement.textContent = 'Мы изучаем JavaScript и DOM';
+});
+    </script>
+</body>
+</html>
+
+задание 2
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+</head>
+<body>
+
+    <h1 id="heading">Привет, это тестовый заголовок!</h1>
+
+    <button id="color">Изменить цвет текста</button>
+
+    <button id="background">Изменить фон страницы</button>
+
+    <script>
+        let heading = document.querySelector("#heading");
+
+        const textColors = ["red", "blue", "green", "orange", "purple", "brown"];
+        const bgColors = ["pink", "lightblue", "lightgreen", "lightyellow", "lavender", "thistle"];
+
+        let textColorIndex = 0;
+        let bgColorIndex = 0;
+
+        document.querySelector("#color").addEventListener("click", function() {
+            heading.style.color = textColors[textColorIndex];
+            
+            textColorIndex = (textColorIndex + 1) % textColors.length;
+        });
+
+        document.querySelector("#background").addEventListener("click", function() {
+            let randomIndex = Math.floor(Math.random() * bgColors.length);
+            document.body.style.backgroundColor = bgColors[randomIndex];
+        });
+    </script>
+</body>
+</html>
+
+задание 3
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3</title>
+</head>
+<body>
+
+    <h1>Мои навыки</h1>
+    
+    <ul id="skills"></ul>
+
+    <script>
+let skills = document.querySelector("#skills");
+
+let item1 = document.createElement("li");
+item1.textContent = "HTML";
+
+let item2 = document.createElement("li");
+item2.textContent = "CSS";
+
+let item3 = document.createElement("li");
+item3.textContent = "JavaScript";
+
+skills.append(item1, item2, item3);
+
+    </script>
+    
+</body>
+</html>
+
+задание 4
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 4</title>
+</head>
+<body>
+
+    <p id="paragraph">Этот текст исчезнет, если нажать на кнопку ниже.</p>
+
+    <button id="delete">Удалить текст</button>
+
+    <script>
+        let paragraph = document.querySelector("#paragraph");
+let deleteButton = document.querySelector("#delete");
+
+deleteButton.addEventListener("click", function() {
+    paragraph.remove();
+});
+</script>
+
+</body>
+</html>
+
+задание 5
+
+ <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 5</title>
+    <style>
+        .delete-btn {
+            margin-left: 10px;
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Мой список дел</h1>
+    
+    <input type="text" id="todoInput" placeholder="Введите задачу...">
+    <button id="addBtn">Добавить</button>
+
+    <p>Всего задач: <span id="counter">0</span></p>
+
+    <ul id="todoList"></ul>
+
+    <script>
+let todoInput = document.querySelector("#todoInput");
+let addBtn = document.querySelector("#addBtn");
+let todoList = document.querySelector("#todoList");
+let counter = document.querySelector("#counter");
+
+function updateCounter() {
+    let totalItems = todoList.querySelectorAll("li").length;
+    counter.textContent = totalItems;
+}
+
+addBtn.addEventListener("click", function() {
+    let taskText = todoInput.value.trim();
+
+    if (taskText === "") {
+        alert("Пожалуйста, введите текст задачи!");
+        return;
+    }
+
+    let li = document.createElement("li");
+    li.textContent = taskText;
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Стереть с лица земли!";
+    deleteBtn.classList.add("delete-btn");
+
+    deleteBtn.addEventListener("click", function() {
+        li.remove();
+        updateCounter();
+    });
+
+    li.append(deleteBtn);
+    todoList.append(li);
+
+    todoInput.value = "";
+    updateCounter();
+});
+
+    </script>
+</body>
+</html>
+
+задание 6
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 6</title>
+</head>
+<body>
+
+    <h1>Задание 6</h1>
+    <p>Результат работы программы выводится в консоль разработчика.</p>
+    <p> --> F12 --> Консоль 
+
+    <script>
+const student1 = { name: 'Алина', group: 'ВЕБ-21' };
+const student2 = { name: 'Максим', group: 'ВЕБ-22' };
+
+function showInfo() {
+    console.log(this.name, this.group);
+}
+
+student1.showInfo = showInfo;
+student2.showInfo = showInfo;
+
+console.log("--- Вызов методов объектов ---");
+student1.showInfo();
+student2.showInfo();
+
+console.log("--- Вызов отдельной переменной ---");
+const copiedShowInfo = student1.showInfo;
+copiedShowInfo();
+    </script>
+
+</body>
+</html>
+
+задание 7
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 7</title>
+</head>
+<body>
+
+    <h1>Задание 7</h1>
+    <p><strong>Так же, F12 и консоль</p>
+
+    <script>
+const product = { name: 'Наушники', price: 5000 };
+
+function showProduct(discount, city) {
+    const finalPrice = this.price * (1 - discount / 100);
+    
+    console.log(Товар: ${this.name}, Цена со скидкой: ${finalPrice} руб., Город доставки: ${city});
+}
+
+console.log("--- call() ---");
+showProduct.call(product, 10, 'Москва'); 
+
+console.log("--- apply() ---");
+showProduct.apply(product, [20, 'Санкт-Петербург']); 
+</script>
+
+</body>
+</html>
+
+задание 8
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 8</title>
+</head>
+<body>
+
+    <h1>Задание 8</h1>
+    <p>F12. Там все ответы</p>
+
+    
+    <script>
+      
+const employee = {
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
+    showInfo() {
+        console.log(this.name, this.position);
+    }
+};
+
+console.log("--- Вызов метода ---");
+employee.showInfo();
+
+console.log("--- Вызов из переменной ---");
+const stolenShowInfo = employee.showInfo;
+stolenShowInfo();
+
+const boundShowInfo = employee.showInfo.bind(employee);
+
+console.log("--- bind функции ---");
+boundShowInfo();
+
+console.log("--- Доп. задание (второй сотрудник) ---");
+const employee2 = {
+    name: 'Елена',
+    position: 'Дизайнер'
+};
+
+const boundShowInfo2 = employee.showInfo.bind(employee2);
+boundShowInfo2();
+
+    </script>
+
+</body>
+</html>
+
+задание 9
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 9</title>
+</head>
+<body>
+
+    <h1>Задание 9</h1>
+    
+    <button id="regular">Обычная функция</button>
+    <button id="arrow">Стрелочная функция</button>
+
+    <p>Ответ в консоле</p>
+
+    
+    <script>
+const regularBtn = document.querySelector('#regular');
+const arrowBtn = document.querySelector('#arrow');
+
+regularBtn.addEventListener('click', function(event) {
+    console.log('--- Тык по обычной функции ---');
+    console.log('this:', this); 
+    console.log('event.currentTarget:', event.currentTarget);
+});
+
+arrowBtn.addEventListener('click', (event) => {
+    console.log('--- Тык по стрелочной функции ---');
+    console.log('this:', this); 
+    console.log('event.currentTarget:', event.currentTarget);
+});
+/*
+В обычной функции this определяется в момент вызова. При срабатывании DOM-события браузер автоматически связывает this с элементом, на котором оно произошло.
+
+В стрелочной функции своего собственого контекста thid нету. Стрелочная функция замыкает тот this, который окружал её в момент создания.
+*/
+
+</script>
+    
+</body>
+</html>
+
+10 задание (дз)
+
+оно будет тут (когда-то)
